@@ -8,7 +8,7 @@
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
 
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="public/css/style.css">
 
 </head>
 
@@ -16,15 +16,17 @@
 
     <h1>DOM Image Gallery</h1>
     <ul>
-        <li>fall</li>
-        <li>conservative</li>
-        <li>swenson</li>
+        <li>
+            <a href="public/images/Hopetoun_falls.jpg" onclick='showPic(this);return false;'>fall</a>
+        </li>
+        <li><a href="public/images/conservative.jpg" onclick="showPic(this);return false;">conservative</a></li>
+        <li><a href="public/images/swenson.jpeg" onclick="showPic(this);return false;">swenson</a></li>
     </ul>
 
     <img id="image" src="public/images/corgi.jpg" alt="my image gallery">
 
 
 
-  <script src="js/app.js"></script>
+  <script src="public/js/app.js"></script>
 </body>
 </html>

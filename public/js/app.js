@@ -8,7 +8,7 @@ function showPic(link){
     // console.log(desp.nodeName);
 }
 
-window.onload = countBodyChildren
+window.onload = hello
 
 function countBodyChildren(){
     var body = document.getElementsByTagName('body')[0];
@@ -19,4 +19,12 @@ function countBodyChildren(){
             console.log(node.nodeName);
         }
     )
+}
+
+function hello(){
+    var para = document.createElement("p");
+    var text = document.createTextNode("Hello World");
+    var containerdiv = document.getElementById("testdiv");
+    para.appendChild(text);
+    containerdiv.appendChild(para);
 }

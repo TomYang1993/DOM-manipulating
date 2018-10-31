@@ -71,6 +71,6 @@ function loadDescription() {
 
 addLoadEvent(loadDescription);
 
-
+addLoadEvent(getNew())
 // console.log(typeof window.onload);
 // console.log(window);

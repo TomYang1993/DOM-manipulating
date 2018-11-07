@@ -1,87 +1,62 @@
+function positionMessage() {
+    var ele = document.getElementById("message");
+    ele.style.position = "absolute";
+    ele.style.left = "0px";
+    ele.style.top = "400px";
 
-console.log(typeof window.onload);
-
-function showPic(event, link){
-    event.preventDefault();
-    // console.log(link.getAttribute('href'));
-    document.getElementById('image').src = link.getAttribute('href')
-    console.log(link.getAttribute('title'));
-    // console.log(desp.nodeType);
-    // console.log(desp.nodeName);
+    // moveMessage("message", 200, 10);
 }
 
-// window.onload = hello
+function moveMessage(ele_id, final_x, final_y) {
+    var ele = document.getElementById(ele_id);
 
-// function hello(){
-//     var para = document.createElement("p");
-//     var text = document.createTextNode("Hello World");
-//     var containerDiv = document.getElementById("testdiv");
-//     para.appendChild(text);
-//     containerDiv.appendChild(para);
-// }
+    var x = parseInt(ele.style.left);
+    var y = parseInt(ele.style.top);
 
-function countBodyChildren(){
-    var body = document.getElementsByTagName('body')[0];
-    console.log(body.childNodes.length);
-    body.childNodes.forEach(
-        function(node) {
-            console.log(node.nodeType);
-            console.log(node.nodeName);
-        }
-    )
-}
-
-
-// customized insertAfter function ( no default insertAfter only insertBefore method)
-function insertAfter(newElement, targetElement){
-    var parent = targetElement.parentNode
-    if(parent.lastChild === targetElement){
-        parent.appendChild(newElement);
-
-    }else {
-        parent.insertBefore(newElement,targetElement.nextSibling)
+    if(x == final_x && y == final_y){
+        return true;
     }
-}
 
-// get next element node, skip textNodes etc
-function getNextEle(node) {
-    if(node.nodeType == 1){
-        return node;
+    if(x < final_x){
+        x++;
     }else{
-        getNextEle(node.nextSibling);
+        x--;
     }
-}
-
-function highlightRows(){
-
-    var rows = document.getElementsByTagName("tr");
-    console.log(rows);
-    for(var i =0; i < rows.length; i++){
-        rows[i].onmouseover = function() {
-            this.style.fontWeight = "bold";
-            // remember it has to be s string
-            this.style.fontSize = "20px";
-        }
-        rows[i].onmouseout = function() {
-            this.style.fontWeight = "normal";
-        }
+    if(y < final_y){
+        y++;
+    }else{
+        y--;
     }
+    ele.style.left = x + "px";
+    ele.style.top = y + "px";
+
+    setTimeout(moveMessage, 10, ele_id, final_x, final_y);
+
 }
 
+function prepareSlideShow() {
+    var preview = document.getElementById("preview");
+    preview.style.position = "absolute";
+    preview.style.left = "0px";
+    preview.style.top = "0px";
 
-function loadDescription() {
-    var testDiv = document.getElementById("testdiv");
-    var para = document.createElement("p");
-    para.setAttribute("id", "decription");
-    var text = document.createTextNode("Choose an image");
-    para.appendChild(text);
-    insertAfter(para, testDiv);
+    var list = document.getElementById("linklist");
+    var links = list.getElementsByTagName("a");
+
+    links[0].onmouseover = function(){
+        moveMessage("preview", -100, 0)
+    }
+
+    links[1].onmouseover = function(){
+        moveMessage("preview", -200, 0)
+    }
+
+    links[2].onmouseover = function(){
+        moveMessage("preview", -300, 0)
+    }
+
+
 }
 
-addLoadEvent(loadDescription);
-addLoadEvent(highlightRows);
-
-
-// addLoadEvent(getNew())
-// console.log(typeof window.onload);
-// console.log(window);
+addLoadEvent(positionMessage);
+addLoadEvent(prepareSlideShow);

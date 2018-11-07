@@ -32,22 +32,6 @@ function countBodyChildren(){
 }
 
 
-
-// for adding multiple functions to the window.onload function 
-function addLoadEvent(func){
- var reload = window.onload;
- if(window.onload != 'function'){
-    window.onload = func;
- }else{
-    window.onload = function() {
-        reload();
-        func();
-    }
- }
-};
-
-
-
 // customized insertAfter function ( no default insertAfter only insertBefore method)
 function insertAfter(newElement, targetElement){
     var parent = targetElement.parentNode
@@ -56,6 +40,31 @@ function insertAfter(newElement, targetElement){
 
     }else {
         parent.insertBefore(newElement,targetElement.nextSibling)
+    }
+}
+
+// get next element node, skip textNodes etc
+function getNextEle(node) {
+    if(node.nodeType == 1){
+        return node;
+    }else{
+        getNextEle(node.nextSibling);
+    }
+}
+
+function highlightRows(){
+
+    var rows = document.getElementsByTagName("tr");
+    console.log(rows);
+    for(var i =0; i < rows.length; i++){
+        rows[i].onmouseover = function() {
+            this.style.fontWeight = "bold";
+            // remember it has to be s string
+            this.style.fontSize = "20px";
+        }
+        rows[i].onmouseout = function() {
+            this.style.fontWeight = "normal";
+        }
     }
 }
 
@@ -70,7 +79,9 @@ function loadDescription() {
 }
 
 addLoadEvent(loadDescription);
+addLoadEvent(highlightRows);
 
-addLoadEvent(getNew())
+
+// addLoadEvent(getNew())
 // console.log(typeof window.onload);
 // console.log(window);

@@ -8,8 +8,13 @@ function positionMessage() {
 }
 
 function moveMessage(ele_id, final_x, final_y) {
+
+    
     var ele = document.getElementById(ele_id);
 
+    if(ele.movement){
+        clearTimeout(ele.movement);
+    }
     var x = parseInt(ele.style.left);
     var y = parseInt(ele.style.top);
 
@@ -30,7 +35,7 @@ function moveMessage(ele_id, final_x, final_y) {
     ele.style.left = x + "px";
     ele.style.top = y + "px";
 
-    setTimeout(moveMessage, 10, ele_id, final_x, final_y);
+    ele.movement = setTimeout(moveMessage, 10, ele_id, final_x, final_y);
 
 }
 

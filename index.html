@@ -1,6 +1,7 @@
 <!doctype html>
 
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
 
@@ -14,21 +15,35 @@
 
 <body>
 
-    <h1>DOM Image Gallery</h1>
-    <ul>
-        <li>
-            <a href="public/images/Hopetoun_falls.jpg" title="a beautiful fall" onclick='showPic(this);return false;'>fall</a>
-        </li>
-        <li><a href="public/images/conservative.jpg" title="a beautiful consevative" onclick="showPic(this);return false;">conservative</a></li>
-        <li><a href="public/images/swenson.jpeg" title="a beautiful swenson" onclick="showPic(this);return false;">swenson</a></li>
+  <h1 style="margin-left: 20px;">DOM Image Gallery</h1>
+  <div>
+    <ul id="imagegallery">
+      <li>
+        <a href="public/images/Hopetoun_falls.jpg" title="a beautiful fall" onclick='showPic(this);return false;'>
+          <img style="width: 100px; height: 100px;" src="public/images/Hopetoun_falls.jpg" alt="Fall" />
+        </a>
+      </li>
+      <li>
+        <a href="public/images/conservative.jpg" title="a beautiful consevative" onclick="showPic(this);return false;">
+          <img style="width: 100px; height: 100px;" src="public/images/conservative.jpg" alt="Conservative" />
+        </a>
+      </li>
+      <li>
+        <a href="public/images/swenson.jpeg" title="a beautiful swenson" onclick="showPic(this);return false;">
+          <img style="width: 100px; height: 100px;" src="public/images/swenson.jpeg" alt="swenson" />
+        </a>
+      </li>
     </ul>
+  </div>
+  
 
-    <div id="description">Choose an image</p>
+  <div id="description">Choose an image</p>
     <img id="image" src="public/images/corgi.jpg" alt="my image gallery">
     <div id="testdiv"></div>
 
 
 
-  <script src="public/js/app.js"></script>
+    <script src="public/js/app.js"></script>
 </body>
+
 </html>

@@ -21,10 +21,10 @@ function countBodyChildren(){
     )
 }
 
-function hello(){
-    var para = document.createElement("p");
-    var text = document.createTextNode("Hello World");
-    var containerdiv = document.getElementById("testdiv");
-    para.appendChild(text);
-    containerdiv.appendChild(para);
-}
+// function hello(){
+//     var para = document.createElement("p");
+//     var text = document.createTextNode("Hello World");
+//     var containerdiv = document.getElementById("testdiv");
+//     para.appendChild(text);
+//     containerdiv.appendChild(para);
+// }
